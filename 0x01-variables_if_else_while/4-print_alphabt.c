@@ -14,7 +14,7 @@ int main(void)
 	int i;
 
 	for (i = 0; i < 27; i++)
-		if (alpha[i] != 'q' || alpha[i] != 'e')
+		if (alpha[i] != 'q' && alpha[i] != 'e')
 			putchar(alpha[i]);
 
 	putchar ('\n');
