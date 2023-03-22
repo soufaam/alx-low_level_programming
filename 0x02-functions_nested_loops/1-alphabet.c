@@ -3,8 +3,8 @@
 #include "main.h"
 
 /**
-* main - Entry point
-* Description: 'the program's description
+* print_alphabet  - check the code
+* Description: 'this program print alphabet from a to z'
 *  Return: Always 0 (Success)
 */
 
