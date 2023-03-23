@@ -1,0 +1,89 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "main.h"
+
+/**
+* print_less_98 - check the code
+* Description: 'this program  print_less_98'
+* @l: n is int variable
+*  Return: Alrays 0 (Success)
+*/
+void print_less_98(int l)
+{
+	int j,r, q;
+
+	for (j = l; j <= 98; j++)
+	{
+		r = j % 10;
+		q = j / 10;
+		if (j < 0)
+		{
+			r = r * -1;
+			q = q * -1;
+			_putchar('-');
+		}
+		if (q == 0)
+		{
+			_putchar(r + '0');
+			_putchar(',');
+			_putchar(' ');
+		}
+		else
+		{
+			_putchar(q + '0');
+			_putchar(r + '0');
+			if (j == 98)
+				continue;
+			_putchar(',');
+			_putchar(' ');
+		}
+	}
+	_putchar('\n');
+}
+
+/**
+* print_greater_98 - check the code
+* Description: 'this program  print_greater_98 print numbr from to 98'
+* @h: h is int variable
+*  Return: Alrays 0 (Success)
+*/
+void print_greater_98(int h)
+{
+	int j, m, n, o, p, q, r;
+	for (j = h; j >= 98; j--)
+	{
+		r = j % 10;
+		q = r / 10;
+		p = q  10;
+		if (j > 99)
+			_putchar(p + '0');
+		_putchar(q + '0');
+		_putchar(r + '0');
+			if (j == 98)
+				continue;
+			_putchar(',');
+			_putchar(' ');
+	}
+	_putchar('\n');
+}
+
+/**
+* print_to_98 - check the code
+* Description: 'this program  print_to_98'
+* @n: n is int variable
+*  Return: Alrays 0 (Success)
+*/
+
+void print_to_98(int n)
+{
+	if (n < 98)
+		print_less_98(n);
+	else if (n > 98)
+		print_greater_98(n);
+	else 
+	{
+		_putchar(9 + '0');
+		_putchar(8 + '0');
+		_putchar('\n');
+	}
+}
