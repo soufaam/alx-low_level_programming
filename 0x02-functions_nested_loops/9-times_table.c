@@ -3,8 +3,8 @@
 #include "main.h"
 
 /**
-*  time_table - check the code
-* Description: 'this program  time_table'
+* times_table - check the code
+* Description: 'this program  times_table'
 *  Return: Always 0 (Success)
 */
 
