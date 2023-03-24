@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "main.h"
+
 
 /**
 * print_natural - check the code
@@ -22,4 +22,16 @@ void print_natural(void)
 	}
 	printf("%d", sum);
 	printf("\n");
+}
+
+
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
+{
+	print_natural();
+	return (0);
 }
