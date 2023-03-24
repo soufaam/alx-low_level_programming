@@ -21,9 +21,12 @@ int main(void)
 		fi = f0 + f1;
 		f0 = f1;
 		f1 = fi;
-		printf("%ld, ", fi);
 		if (i == 50)
+		{
 			printf("%ld\n", fi);
+			continue;
+		}
+		printf("%ld, ", fi);
 	}
 	return (0);
 }
