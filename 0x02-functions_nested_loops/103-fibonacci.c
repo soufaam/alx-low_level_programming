@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-	int fi, f0 = 1, f1 = 2, sum = 0;
+	int fi, f0 = 1, f1 = 2, sum = 2;
 
 	fi = f0 + f1;
 	while (fi <= 4000000)
