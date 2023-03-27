@@ -16,7 +16,7 @@ void fizzbuzz(void)
 	{
 		if (nbr % 5 == 0 && nbr % 3 == 0 && nbr != 100)
 			printf("FizzBuzz ");
-		else if (nbr % 5 == 0)
+		else if (nbr % 5 == 0 && nbr != 100)
 			printf("Buzz ");
 		else if (nbr % 3 == 0)
 			printf("Fizz ");
