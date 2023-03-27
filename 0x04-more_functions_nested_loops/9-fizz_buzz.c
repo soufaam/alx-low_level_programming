@@ -15,13 +15,13 @@ void fizzbuzz(void)
 	for (nbr = 1; nbr <= 100; nbr++)
 	{
 		if (nbr % 5 == 0 && nbr % 3 == 0 && nbr != 100)
-			printf("fizzbuzz ");
+			printf("FizzBuzz ");
 		else if (nbr % 5 == 0)
-			printf("buzz ");
+			printf("Buzz ");
 		else if (nbr % 3 == 0)
-			printf("fizz ");
+			printf("Fizz ");
 		else if (nbr == 100)
-			printf("fizzbuzz");
+			printf("Buzz");
 		else
 			printf("%d ", nbr);
 	}
