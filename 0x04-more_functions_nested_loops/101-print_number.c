@@ -11,7 +11,7 @@
 
 void print_number(int n)
 {
-	int size = 0, r, q, div = 1, i, tmp;
+	int size = 0, tmp, r, q, div = 1, i, min = 0;
 
 	tmp = n;
 	if (tmp == 0)
@@ -29,15 +29,24 @@ void print_number(int n)
 	if (n < 0)
 	{
 		_putchar('-');
-		n = n * -1;
+	}
+	if (n == -2147483648)
+	{
+		n = (n + 1)* -1;
+		min = 1;
 	}
 	while (div >= 10)
 	{
 		q = n / div;
-		n = n - (q * div);
+		if (n < 0)
+		{
+			n = n - (q * div*-1);
+		}
+		else
+			n = n - (q * div);
 		_putchar(q + '0');
 		div /= 10;
 	}
 	r = n % 10;
-	_putchar(r + '0');
+	_putchar(r + min + '0');
 }

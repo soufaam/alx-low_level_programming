@@ -13,7 +13,6 @@ int main(void)
     _putchar('\n');
     print_number(123456789);
     _putchar('\n');
-    print_number(2147483648);
     _putchar('\n');
     print_number(-2147483648);
     _putchar('\n');
