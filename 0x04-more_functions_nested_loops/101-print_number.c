@@ -25,7 +25,7 @@ void print_number(int n)
 		size = size + 1;
 	}
 	for (i = 1; i < size; i++)
-		div *= 10; 
+		div *= 10;
 	if (n < 0)
 	{
 		_putchar('-');
