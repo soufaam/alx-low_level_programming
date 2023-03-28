@@ -19,31 +19,29 @@ void print_number(int n)
 		_putchar('0');
 		return;
 	}
+	tmp /= 10;
 	while (tmp != 0)
 	{
 		tmp = tmp / 10;
 		size = size + 1;
 	}
-	for (i = 1; i < size; i++)
+	for (i = 0; i < size; i++)
 		div *= 10;
+	if (n == -2147483648)
+	{
+		n = (n + 1) * -1;
+		min = 1;
+	}
 	if (n < 0)
 	{
 		_putchar('-');
+		n = n * -1;
 	}
-	if (n == -2147483648)
-	{
-		n = (n + 1)* -1;
-		min = 1;
-	}
+
 	while (div >= 10)
 	{
 		q = n / div;
-		if (n < 0)
-		{
-			n = n - (q * div*-1);
-		}
-		else
-			n = n - (q * div);
+		n = n - (q * div);
 		_putchar(q + '0');
 		div /= 10;
 	}
