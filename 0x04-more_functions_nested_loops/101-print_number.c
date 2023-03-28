@@ -31,6 +31,7 @@ void print_number(int n)
 	{
 		n = (n + 1) * -1;
 		min = 1;
+		_putchar('-');
 	}
 	if (n < 0)
 	{
