@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "main.h"
+#include <stdio.h>
 
 /**
 * _strlen -  Entrypoint
@@ -34,11 +35,10 @@ void puts_half(char *str)
 
 	len = _strlen(str);
 	n = len / 2;
-	if (n % 2 != 0)
-		n = n + 1; 
+	if (len % 2 != 0)
+		n = n + 2;
 	while (*(str + n) != '\0')
 	{
-	
 		_putchar(*(str + n));
 		n++;
 	}
