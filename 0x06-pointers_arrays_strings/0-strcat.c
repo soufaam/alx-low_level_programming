@@ -31,20 +31,14 @@ int _strlen(char *s)
 
 char *_strcat(char *dest, char *src)
 {
-	int i = 0, j = 0;
-	char *ptr, *strtmp = dest, *strtmp2 = src;
-
-	ptr = malloc(sizeof(char) * (_strlen(dest) +  _strlen(src) + 1));
-	while (*(strtmp + i) != '\0')
+	int i = 0, len;
+	
+	len = _strlen(dest);
+	while (*(src + i) != '\0')
 	{
-		*(ptr + i) = *(strtmp + i);
+		*(dest + (len + i)) = *(src + i);
 		i++;
 	}
-	while (*(strtmp2 + j) != '\0')
-	{
-		*(ptr + i) = *(strtmp2 + j);
-		i++;
-		j++;
-	}
-	return (ptr);
+	*(dest + (len + i)) = '\0';
+	return (dest);
 }
