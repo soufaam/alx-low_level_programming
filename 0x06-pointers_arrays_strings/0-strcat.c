@@ -32,7 +32,7 @@ int _strlen(char *s)
 char *_strcat(char *dest, char *src)
 {
 	int i = 0, len;
-	
+
 	len = _strlen(dest);
 	while (*(src + i) != '\0')
 	{
