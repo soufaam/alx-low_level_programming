@@ -29,9 +29,9 @@ int _strlen(char *s)
 *  Return: Always 0 (Success)
 */
 
-int *_strcmp(char *s1, char *s2)
+int _strcmp(char *s1, char *s2)
 {
-	int i = 0, len1, len2;
+	int len1, len2;
 
 	len1 = _strlen(s1);
 	len2 = _strlen(s2);
