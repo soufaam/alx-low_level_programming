@@ -13,7 +13,7 @@
 char *rot13(char *s)
 {
 	int i = 0, j;
-	char *rot13 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+	char *rot13 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnoparstuvwxyz",
 	     *rep = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 
@@ -24,6 +24,7 @@ char *rot13(char *s)
 			if (*(s + i) == *(rot13 + j))
 			{
 				*(s + i) = *(rep + j);
+				break;
 			}
 			j++;
 		}
