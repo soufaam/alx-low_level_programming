@@ -3,8 +3,8 @@
 #include "main.h"
 
 /**
-* _strspn -  Entrypoint
-* Description: 'the program's description _strspn
+* _strpbrk -  Entrypoint
+* Description: 'the program's description _strpbrk
 * @s : 1 param
 * @accept : 2 param
 *  Return: Always 0 (Success)
