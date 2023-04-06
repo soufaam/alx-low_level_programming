@@ -3,7 +3,7 @@
 #include "main.h"
 
 /**
-* int _pow_recursion-  Entrypoint
+* _pow_recursion-  Entrypoint
 * Description: 'the program's description int _pow_recursion
 * @x: 1 param
 * @y: 2 param
