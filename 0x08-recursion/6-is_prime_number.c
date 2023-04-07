@@ -3,20 +3,32 @@
 #include "main.h"
 
 /**
-* _pow_recursion-  Entrypoint
-* Description: 'the program's description int _pow_recursion
-* @x: 1 param
+* calculate_prime -  Entrypoint
+* Description: 'the program's description int calculate_prime
+* @n: 1 param
 * @y: 2 param
 * Return: Always 0 (Success)
 */
-
-int _pow_recursion(int x, int y)
+int calculate_prime(int n, int y)
 {
-	if (y > 0)
-	{
-		return (x * _pow_recursion(x, y - 1));
-	}
-	else if (y == 0)
+	if (n == -1 || n == 1)
+		return (0);
+	if (n % y != 0)
+		return (calculate_prime(n, y + 1));
+	if (y == n)
 		return (1);
-	return (-1);
+	if (n % y == 0)
+		return (0);
+	return (1);
+}
+/**
+* is_prime_number-  Entrypoint
+* Description: 'the program's description int is_prim_number
+* @n: 1 param
+* Return: Always 0 (Success)
+*/
+
+int is_prime_number(int n)
+{
+	return (calculate_prime(n, 2));
 }
