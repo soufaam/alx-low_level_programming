@@ -2,7 +2,8 @@
 
 /**
  * main - check the code
- *
+ *@argc: first param
+ *@argv: 2 param
  * Return: Always 0.
  */
 int main(int __attribute__ ((unused)) argc, char *argv[])
