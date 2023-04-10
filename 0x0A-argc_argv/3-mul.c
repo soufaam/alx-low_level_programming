@@ -10,6 +10,7 @@
 int main(int argc, char __attribute__ ((unused)) *argv[])
 {
 	int __attribute__ ((unused)) a, __attribute__ ((unused)) b;
+	int __attribute__ ((unused)) result;
 
 	if (argc <= 1)
 	{
@@ -18,6 +19,7 @@ int main(int argc, char __attribute__ ((unused)) *argv[])
 	}
 	a = atoi(argv[1]);
 	b = atoi(argv[2]);
-	printf("%d\n", (a * b));
+	result = a * b;
+	printf("%d\n", result);
 	return (0);
 }
