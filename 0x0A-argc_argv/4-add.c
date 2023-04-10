@@ -21,7 +21,7 @@ int main(int argc, char __attribute__ ((unused)) *argv[])
 		if (atoi(argv[i]) == 0)
 		{
 			printf("Error\n");
-			return (0);
+			return (1);
 		}
 		sum = sum + atoi(argv[i]);
 	}
