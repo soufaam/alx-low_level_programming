@@ -13,7 +13,7 @@ int main(int argc, char __attribute__ ((unused)) *argv[])
 
 	if (argc <= 1)
 	{
-		printf("0\n");
+		printf("%d\n", 0);
 		return (0);
 	}
 	for (i = 1; i < argc; i++)
