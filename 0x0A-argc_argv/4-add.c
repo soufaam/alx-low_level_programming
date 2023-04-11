@@ -19,9 +19,9 @@ int main(int argc, char __attribute__ ((unused)) *argv[])
 	for (i = 1; i < argc; i++)
 	{
 		j = 0;
-		while ((*(*argv + i) + j) != '\0')
+		while (argv[i][j] != '\0')
 		{
-			if ((*(*argv + i) + j) <= '9' && (*(*argv + i) + j) >= '0')
+			if (argv[i][j] > '9' || argv[i][j] < '0')
 			{
 				printf("Error\n");
 				return (1);
