@@ -11,7 +11,7 @@ int main(int argc, char __attribute__ ((unused)) *argv[])
 {
 	int sum = 0, i;
 
-	if (argc <= 22)
+	if (argc <= 2)
 	{
 		printf("%d\n", 0);
 		return (0);

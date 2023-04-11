@@ -12,7 +12,7 @@ int main(int argc, char __attribute__ ((unused)) *argv[])
 	int __attribute__ ((unused)) a, __attribute__ ((unused)) b;
 	int __attribute__ ((unused)) result;
 
-	if (argc <= 1)
+	if (argc <= 2)
 	{
 		printf("Error\n");
 		return (1);
