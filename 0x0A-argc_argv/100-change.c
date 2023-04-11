@@ -31,7 +31,6 @@ int main(int argc, char __attribute__ ((unused)) *argv[])
 		return (1);
 	}
 	m = atoi(argv[1]);
-	printf("%d \n", m);
 	for (; i < 5; i++)
 	{
 		count = cal_recursive(m, coinTab[i]);
