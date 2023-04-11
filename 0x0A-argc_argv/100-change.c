@@ -9,9 +9,9 @@
  */
 int cal_recursive(int m, int coin)
 {
-	if (m - coin < 0)
+	if (m - coin < 0 || m / coin == 0)
 		return (0);
-	return (1 + cal_recursive(m - coin, coin));
+	return (m / coin);
 }
 
 /**
@@ -31,6 +31,7 @@ int main(int argc, char __attribute__ ((unused)) *argv[])
 		return (1);
 	}
 	m = atoi(argv[1]);
+	printf("%d \n", m);
 	for (; i < 5; i++)
 	{
 		count = cal_recursive(m, coinTab[i]);
