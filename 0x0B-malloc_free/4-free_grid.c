@@ -9,7 +9,7 @@
 * @height: 2 param
 *  Return: Always 0 (Success)
 */
-void free_grid(int ** grid, int height)
+void free_grid(int **grid, int height)
 {
 	int i;
 
