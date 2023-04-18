@@ -34,16 +34,16 @@ char *argstostr(int ac, char **av)
 	int i = 0, j = 0, k = 0, len = 0;
 	char *str;
 
-	if (ac <= 1 || av == NULL)
+	if (ac == 0 || av == NULL)
 		return (NULL);
-	for (i = 1; i < ac; i++)
+	for (i = 0; i < ac; i++)
 	{
 		len = len + _strlen(av[i]) + 1;
 	}
 	str = malloc(len * sizeof(char));
 	if (str)
 	{
-		i = 1;
+		i = 0;
 		while (i < ac)
 		{
 			while (av[i][j] != '\0')
