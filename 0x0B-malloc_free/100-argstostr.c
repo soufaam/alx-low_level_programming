@@ -40,6 +40,7 @@ char *argstostr(int ac, char **av)
 	{
 		len = len + _strlen(av[i]) + 1;
 	}
+	len++;
 	str = malloc(len * sizeof(char));
 	if (str)
 	{
