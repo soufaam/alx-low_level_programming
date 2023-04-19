@@ -29,7 +29,7 @@ int _strlen(char *s)
 */
 char *_strdup(char *str)
 {
-	char *s;
+	char *s = NULL;
 	int i = 0;
 
 	if (str == NULL)
@@ -41,9 +41,9 @@ char *_strdup(char *str)
 		{
 			*(s + i) = *(str + i);
 		}
+		*(s + i) = '\0';
 	return (s);
 	}
-	free(s);
 	return (NULL);
 }
 
