@@ -2,8 +2,6 @@
 #define DOG_H_
 #include <stdio.h>
 
-int _putchar(char c);
-
 /**
  * struct dog - Short description
  * @name: First member
@@ -18,4 +16,7 @@ struct dog
 	float age;
 	char *owner;
 };
+int _putchar(char c);
+void init_dog(struct dog *d, char *name, float age, char *owner);
+
 #endif /* DOG_H_ */
