@@ -28,18 +28,18 @@ int _strlen(char *s)
 * Description: 'the program's description string_nconcat
 * @s1 : 1 param
 * @s2 : 2 param
-* @n : 3 param 
+* @n : 3 param
 *  Return: Always 0 (Success)
 */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *s;
 	unsigned int i = 0, j = 0, m = 0, len = 0;
-	
+
 	len = (unsigned int)_strlen(s2);
 	if (n >  len)
 		m = len;
-	else 
+	else
 		m = n;
 	s = malloc(sizeof(char) * (_strlen(s1) + m) + 1);
 	if (s)
@@ -54,7 +54,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		}
 		if (s2 != NULL)
 		{
-			while ( j < m)
+			while (j < m)
 			{
 				*(s + i) = *(s2 + j);
 				i++;
