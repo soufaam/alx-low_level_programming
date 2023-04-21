@@ -1,5 +1,5 @@
-#ifndef 1-PI_H_
-#define 1-PI_H_
+#ifndef PI_H_
+#define PI_H_
 #include <stdio.h>
 #include <math.h>
 
