@@ -18,11 +18,10 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (nmemb <= 0 || size <= 0)
 		return (NULL);
 	var = malloc(nmemb * size);
-	if (var)
-	{
-		dest = var;
-		for (i = 0; i < nmemb * size; i++)
-			dest[i] = 0;
-	}
+	if (!var)
+		return (NULL);
+	dest = var;
+	for (i = 0; i < (nmemb * size); i++)
+		dest[i] = 0;
 	return (dest);
 }
