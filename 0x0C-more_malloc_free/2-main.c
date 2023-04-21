@@ -40,7 +40,6 @@ int main(void)
 {
 	char *a;
 	unsigned int nmemb;
-	unsigned int i;
 
 	nmemb = 402;
 	a = _calloc(nmemb, sizeof(*a));
@@ -49,8 +48,6 @@ int main(void)
 		printf("Failed\n");
 		return (1);
 	}
-	for (i = 0; i < nmemb; ++i)
-		a[i] = 98;
 	simple_print_buffer(a, nmemb);
 	free(a);
 	return (0);
