@@ -38,13 +38,20 @@ void simple_print_buffer(char *buffer, unsigned int size)
  */
 int main(void)
 {
-    char *a;
+	char *a;
+	unsigned int nmemb;
+	unsigned int i;
 
-    a = _calloc(98, sizeof(char));
-    strcpy(a, "Best");
-    strcpy(a + 4, " School! :)\n");
-    a[97] = '!';
-    simple_print_buffer(a, 98);
-    free(a);
-    return (0);
+	nmemb = 402;
+	a = _calloc(nmemb, sizeof(*a));
+	if (a == NULL)
+	{
+		printf("Failed\n");
+		return (1);
+	}
+	for (i = 0; i < nmemb; ++i)
+		a[i] = 98;
+	simple_print_buffer(a, nmemb);
+	free(a);
+	return (0);
 }
