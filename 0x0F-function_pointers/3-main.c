@@ -1,15 +1,17 @@
 #include "3-calc.h"
 #include <stdio.h>
 /**
- * main - check the code
- *
- * Return: Always 0.
- */
-int main(int argc,char **argv)
+* main - check the code
+* @argc : 1 param
+* @argv : 2 param
+* Return: Always 0.
+*/
+int main(int argc, char **argv)
 {
 	int a, b;
 	char *s;
-	int (*f)(int , int );
+	int (*f)(int, int);
+
 	if (argc < 4)
 	{
 		printf("Error\n");
@@ -29,6 +31,6 @@ int main(int argc,char **argv)
 		printf("Error\n");
 		exit(99);
 	}
-	printf("%d\n", (*f)(a,b));
+	printf("%d\n", (*f)(a, b));
 	return (0);
 }
