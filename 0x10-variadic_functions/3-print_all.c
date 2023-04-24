@@ -31,7 +31,7 @@ void print_all(const char * const format, ...)
 	int i = 0, j = 0;
 
 	va_start(ap, format);
-	while (*(format + i) != '\0')
+	while (*(format + i) != '\0' && format != NULL)
 	{
 		j = 0;
 		switch (*(format + i))
