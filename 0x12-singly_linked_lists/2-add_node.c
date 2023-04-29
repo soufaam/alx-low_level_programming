@@ -20,7 +20,7 @@ int _strlen(const char *s)
 	return (len);
 }
 /**
-* list_d - ENTRYPOINT
+* add_node - ENTRYPOINT
 * @head : constant
 * @str: char
 * Return: 0 success or uint
@@ -31,10 +31,13 @@ list_t *add_node(list_t **head, const char *str)
 
 	list_t *node = malloc(sizeof(list_t));
 
-	node->str = strdup(str);
-	node->len = _strlen(str);
-	node->next = *head;
-	*head = node;
+	if (node)
+	{
+		node->str = strdup(str);
+		node->len = _strlen(str);
+		node->next = *head;
+		*head = node;
+	}
 	if (*head)
 		return (*head);
 	return (NULL);
