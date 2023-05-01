@@ -2,25 +2,21 @@
 #include <stdio.h>
 
 /**
-* poplistint - ENTRYPOINT
+* pop_listint - ENTRYPOINT
 * @head : constant
-* @n: int
 * Return: 0 success or uint
 */
 
 int  pop_listint(listint_t **head)
 {
 
-	listint_t *node = malloc(sizeof(listint_t));
+	listint_t *node = *head;
 	int n;
 
-	if (!*head)
-		return (NULL);
-	node->n = n;
-		node->next = *head;
-		*head = node;
-	}
-	if (*head)
-		return (*head);
-	return (NULL);
+	if (!node)
+		return (0);
+	n = node->n;
+	*head = node->next;
+	free(node);
+	return (n);
 }
