@@ -7,18 +7,21 @@
 * Return: 0 success or uint
 */
 
-void free_listint2(listint_t *head)
+void free_listint2(listint_t **head)
 {
 
 	listint_t *tmp;
 
-	if (!head)
-		return;
-	while (head)
+	if (!*head)
 	{
-		tmp = head->next;
-		free(head);
-		head = tmp;
+		head = NULL;
+		return;
+	}
+	while (*head)
+	{
+		tmp = (*head)->next;
+		free(*head);
+		*head = tmp;
 	}
 	if (tmp)
 		free(tmp);
