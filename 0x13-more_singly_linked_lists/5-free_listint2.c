@@ -2,12 +2,12 @@
 #include <stdio.h>
 
 /**
-* free_listint - ENTRYPOINT
+* free_listint2 - ENTRYPOINT
 * @head : constant
 * Return: 0 success or uint
 */
 
-void free_listint(listint_t *head)
+void free_listint2(listint_t *head)
 {
 
 	listint_t *tmp;
