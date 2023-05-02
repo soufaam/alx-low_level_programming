@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
-* delete_nodeint - ENTRYPOINT
+* delete_nodeint_at_index - ENTRYPOINT
 * @head : first param
 * @index: 2 parama
 * Return: 0 success or uint
@@ -13,9 +13,17 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	listint_t *ntmp = *head, *node;
 	unsigned int i = 0, delete = -1;
 
-	if (!ntmp)
+	if (!ntmp || !head)
 	{
-		return (1);
+		return (-1);
+	}
+	if (index == 0)
+	{
+		node = *head;
+		*head = ntmp->next;
+		delete = 1;
+		free(node);
+		return (delete);
 	}
 	while (ntmp)
 	{
@@ -25,14 +33,6 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 			ntmp->next = ntmp->next->next;
 			free(node);
 			delete = 1;
-			break;
-		}
-		else if (index == 0)
-		{
-			node = *head;
-			*head = ntmp->next;
-			delete = 1;
-			free(node);
 			break;
 		}
 		ntmp = ntmp->next;
