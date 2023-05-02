@@ -3,10 +3,10 @@
 
 /**
 * insert_nodeint_at_index - ENTRYPOINT
-* @head: first param
-* @idx: 2 parama
-* @n: int
-* Return: 0 success or uint
+* @head : first param
+* @idx : 2 parama
+* @n : int
+* Return: 0 success or NULL
 */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
