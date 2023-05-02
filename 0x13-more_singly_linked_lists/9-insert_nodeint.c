@@ -3,7 +3,7 @@
 
 /**
 * insert_nodeint_at_index - ENTRYPOINT
-* @head : first param
+* @head: first param
 * @idx: 2 parama
 * @n: int
 * Return: 0 success or uint
@@ -17,8 +17,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	if (node)
 		node->n = n;
 	else
-		return (NULL);
-	if (idx < i)
 		return (NULL);
 	if (!ntmp || !head)
 	{
