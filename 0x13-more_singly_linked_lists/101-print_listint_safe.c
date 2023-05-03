@@ -18,12 +18,12 @@ size_t print_listint_safe(const listint_t *head)
 	}
 	while (store != NULL)
 	{
-		printf("[%p] %d\n", (void *)store, store->n);
+		printf("[%p] %d\n", (void *)&store->n, store->n);
 		tmp = store;
 		store = store->next ;
 		if (tmp <= store)
 		{
-			printf("-> [%p] %d\n", (void *)store, store->n);
+			printf("-> [%p] %d\n", (void *)&store->n, store->n);
 			head = head->next;
 			exit(98);
 		}
