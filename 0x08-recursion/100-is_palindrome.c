@@ -54,5 +54,9 @@ int is_palindrome(char *s)
 	{
 		return (0);
 	}
+	if (len % 2 == 0)
+	{
+		return (1);
+	}
 	return (cmpstr(s, 0, len - 1));
 }
