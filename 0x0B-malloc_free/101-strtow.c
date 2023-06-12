@@ -5,7 +5,8 @@
 /**
 * calcount -  Entrypoint
 * Description: 'the program's description _strlen
-* @s : 1 param
+* @s: 1 param
+* @t: 2 param
 *  Return: Always 0 (Success)
 */
 
@@ -14,15 +15,15 @@ int calcount(char *s, __attribute__((unused)) int  *t)
 	int charcount = 0;
 
 	while (*(s + *t) != '\0')
-			{
-				if ((*(s + *t) == ' ') && (*(s + *t - 1) != ' ') && (*t >= 1))
-				{
-					return (charcount);
-				}
-				else if (*(s + *t) != ' ')
-					charcount++;				
-			*t = 1 + *t;
-			}
+	{
+		if ((*(s + *t) == ' ') && (*(s + *t - 1) != ' ') && (*t >= 1))
+		{
+			return (charcount);
+		}
+		else if (*(s + *t) != ' ')
+			charcount++;
+		*t = 1 + *t;
+	}
 	return (charcount);
 }
 /**
