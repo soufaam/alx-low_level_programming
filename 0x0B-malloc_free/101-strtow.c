@@ -84,7 +84,7 @@ char **strtow(char *str)
 			charcount = calcount(str, &t);
 			if (charcount != 0)
 			{
-				allstr[num] = malloc(sizeof(char) * charcount);
+				allstr[num] = malloc(sizeof(char) * charcount + 1);
 				if (allstr[num] == NULL && num != 0)
 				{
 					while (num >= 0)
