@@ -72,7 +72,7 @@ char **strtow(char *str)
 	wordcount = calword(str);
 	if (wordcount == 0)
 		return (NULL);
-	allstr = (char **)malloc((1 + wordcount) * sizeof(char*));
+	allstr = (char **)malloc((1 + wordcount) * sizeof(char *));
 	if (allstr)
 	{
 		for (num = 0; num < wordcount; num++)
