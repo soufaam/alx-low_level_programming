@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
 	int val1, val2, prod;
 
-	if (argc <= 3)
+	if (argc == 3)
 	{
 		val1 = atoi(argv[1]);
 		val2 = atoi(argv[2]);
