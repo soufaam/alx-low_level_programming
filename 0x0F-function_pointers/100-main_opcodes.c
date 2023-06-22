@@ -13,7 +13,11 @@ void printOpcodes(const char *start, int numBytes)
 
 	for (i = 0; i < numBytes; i++)
 	{
-		printf("%02x ", start[i] & 0xFF);
+		if (i != 0)
+		{
+			printf(" ");
+		}
+		printf("%02x", start[i]);
 	}
 	printf("\n");
 }
