@@ -25,6 +25,7 @@ int main(void)
     add_nodeint(&head2, 1024);
     print_listint_safe(head2);
     head = NULL;
+	printf("+++++++++++\n");
     node = add_nodeint(&head, 0);
     add_nodeint(&head, 1);
     add_nodeint(&head, 2);
