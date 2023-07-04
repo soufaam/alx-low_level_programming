@@ -28,6 +28,7 @@ size_t free_listint_safe(listint_t **h)
 		*h = tmp;
 		if (tmp <= current)
 		{
+			i++;
 			break;
 		}
 		i++;
