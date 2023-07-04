@@ -19,9 +19,7 @@ listint_t *find_listint_loop(listint_t *head)
 		tmp = store;
 		store = store->next;
 		if (tmp <= store)
-		{
-			return (store);		
-		}
+			return (store);
 	}
 	return (NULL);
 }
