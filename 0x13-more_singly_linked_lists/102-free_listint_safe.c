@@ -83,7 +83,7 @@ size_t free_listint_safe(listint_t **h)
 {
 
 	listint_t *tmp = NULL, *current = NULL;
-	store_addr *hd = NULL;
+	store_addr *hd2 = NULL;
 	size_t i = 0, true = 0;
 
 	if (!h)
@@ -96,11 +96,11 @@ size_t free_listint_safe(listint_t **h)
 	while (*h)
 	{
 		current = *h;
-		add_nodelong2(&hd, (unsigned long)current);
+		add_nodelong2(&hd2, (unsigned long)current);
 		tmp = (*h)->next;
 		free(*h);
 		*h = tmp;
-		true = get_nodelong2(hd, (unsigned long)tmp);
+		true = get_nodelong2(hd2, (unsigned long)tmp);
 		if (true)
 		{
 			i++;
@@ -108,12 +108,7 @@ size_t free_listint_safe(listint_t **h)
 		}
 		i++;
 	}
-	if (tmp)
-	{
-		i++;
-		free(tmp);
-	}
-	free_listlong2(hd);
+	free_listlong2(hd2);
 	*h = NULL;
 	h = NULL;
 	return (i);
