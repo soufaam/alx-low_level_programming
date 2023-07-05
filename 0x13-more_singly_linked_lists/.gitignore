@@ -47,7 +47,9 @@
 *.cmd
 *.s
 !*.c
+*main*.c
 *.vscode
+[a-z]
 .tmp_versions/
 modules.order
 Module.symvers

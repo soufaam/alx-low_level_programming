@@ -15,8 +15,7 @@ size_t print_listint_safe(const listint_t *head)
 
 	if (head == NULL)
 	{
-		printf("(nil), (nil)\n");
-		exit(98);
+		return (i);
 	}
 	while (store != NULL)
 	{
@@ -26,7 +25,7 @@ size_t print_listint_safe(const listint_t *head)
 		if (tmp <= store)
 		{
 			printf("-> [%p] %d\n", (void *)&store->n, store->n);
-			head = head->next;
+			store = store->next;
 			i++;
 			break;
 		}
