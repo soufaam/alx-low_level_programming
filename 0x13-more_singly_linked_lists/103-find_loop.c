@@ -1,5 +1,76 @@
 #include "lists.h"
 
+
+/**
+* add_nodelong3 - ENTRYPOINT
+* @head : constant
+* @n: int
+* Return: 0 success or uint
+*/
+
+store_addr *add_nodelong3(store_addr **head, const unsigned long n)
+{
+
+	store_addr *node = malloc(sizeof(store_addr));
+
+	if (node)
+	{
+		node->p = n;
+		node->next = *head;
+		*head = node;
+	}
+	if (*head)
+		return (*head);
+	return (NULL);
+}
+
+/**
+* get_nodelong3- ENTRYPOINT
+* @head : listint_t type
+* @value: int unsgned
+* Return: 0 success or uint
+*/
+int get_nodelong3(store_addr *head, unsigned long value)
+{
+	store_addr *node = head;
+
+	if (!node)
+	{
+		return (0);
+	}
+	while (node)
+	{
+		if (node->p == value)
+		{
+			return (1);
+		}
+		node = node->next;
+	}
+	return (0);
+}
+
+/**
+* free_listlong3 - ENTRYPOINT
+* @head : constant
+* Return: 0 success or uint
+*/
+
+void free_listlong3(store_addr *head)
+{
+
+	store_addr *tmp;
+
+	if (!head)
+		return;
+	while (head)
+	{
+		tmp = head->next;
+		free(head);
+		head = tmp;
+	}
+	if (tmp)
+		free(tmp);
+}
 /**
 * find_listint_loop - ENTRYPOINT
 * @head : 1 param
@@ -9,6 +80,8 @@
 listint_t *find_listint_loop(listint_t *head)
 {
 	listint_t *store = head, *tmp = NULL;
+	store_addr *hd = NULL;
+	size_t true = 0;
 
 	if (head == NULL)
 	{
@@ -18,8 +91,13 @@ listint_t *find_listint_loop(listint_t *head)
 	{
 		tmp = store;
 		store = store->next;
-		if (tmp <= store)
+		add_nodelong3(&hd, (unsigned long) tmp);
+		true = get_nodelong3(hd, (unsigned long)store);
+		if (true)
+		{
+			free_listlong3(hd);
 			return (store);
+		}
 	}
 	return (NULL);
 }
