@@ -100,10 +100,10 @@ size_t print_listint_safe(const listint_t *head)
 			printf("-> [%p] %d\n", (void *)&store->n, store->n);
 			store = store->next;
 			i++;
-			free_listlong(hd);
 			break;
 		}
 		i++;
 	}
+	free_listlong(hd);
 	return (i);
 }
