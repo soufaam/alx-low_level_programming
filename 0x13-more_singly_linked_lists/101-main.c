@@ -44,20 +44,14 @@ int main(void)
 	head = NULL;
     /* 1 -> 4 -> 3 -> 2 -> 5 -> (3) */
 	node5 = _add_node(&head, 5);
-	print_listint_safe(head);
-	printf("_______________\n");
+
     node4 = _add_node(&head, 4);
-	print_listint_safe(head);
-	printf("_______________\n");
+	
     node3 = _add_node(&head, 3);
-	print_listint_safe(head);
-	printf("_______________\n");
+	
     node2 = _add_node(&head, 2);
-	print_listint_safe(head);
-	printf("_______________\n");
     node1 = _add_node(&head, 1);
-	print_listint_safe(head);
-	printf("_______________\n");
+	
 
     node1->next = node4;
     node4->next = node3;

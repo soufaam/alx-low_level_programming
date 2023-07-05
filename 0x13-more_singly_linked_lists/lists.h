@@ -15,6 +15,19 @@ typedef struct listint_s
 	int n;
 	struct listint_s *next;
 } listint_t;
+
+/**
+ * struct store_addr - singly linked list
+ * @p: unsigned long
+ * @next: points to the next node
+ * Description: singly linked list node structure
+ */
+typedef struct store_addr
+{
+	unsigned long p;
+	struct store_addr *next;
+} store_addr;
+
 size_t free_listint_safe(listint_t **h);
 listint_t *reverse_listint(listint_t **head);
 size_t print_listint_safe(const listint_t *head);
