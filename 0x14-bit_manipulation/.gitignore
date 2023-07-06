@@ -47,6 +47,7 @@
 *.cmd
 *.s
 *main*.c
+_putchar.c
 *.vscode
 .tmp_versions/
 modules.order
