@@ -29,7 +29,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		if (rd > 0)
 		{
 		str[rd] = '\0';
-		dprintf(2, "%s", str);
+		write(STDOUT_FILENO, str, letters);
 		}
 		else
 			return (0);
