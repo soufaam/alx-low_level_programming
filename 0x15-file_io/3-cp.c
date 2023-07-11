@@ -1,25 +1,7 @@
 #include "main.h"
 
 /**
-* _strlen -  Entrypoint
-* Description: 'the program's description _strlen
-* @s : 1 param
-*  Return: Always 0 (Success)
-*/
-
-int _strlen(char *s)
-{
-	int t = 0, len = 0;
-
-	while (*(s + t) != '\0')
-	{
-		len = len + 1;
-		t++;
-	}
-	return (len);
-}
-/**
-* exitprint -  Entrypoint
+* exitprint -  function
 * Description: 'the program's description _strlen
 * @fd : 1 param
 *  Return: Always 0 (Success)
@@ -35,8 +17,8 @@ void exitprint(int fd)
 }
 
 /**
-* write_buff -
-* Description: 'the program's description _strlen
+* write_buff - function
+* Description: 'the program's description write_buff
 * @d_fd: 1 param
 * @s_fd: 2 param
 * @dfilename: 3 param
@@ -65,7 +47,7 @@ void write_buff(ssize_t d_fd, ssize_t s_fd, char *dfilename)
 }
 
 /**
-* cp_file_to_file -  Entrypoint
+* cp_file_to_file -  function
 * Description: 'the program's description _strlen
 * @sfilename: 1 param
 * @dfilename: 2 param2
@@ -74,7 +56,7 @@ void write_buff(ssize_t d_fd, ssize_t s_fd, char *dfilename)
 
 void cp_file_to_file(const char *sfilename, char *dfilename)
 {
-	ssize_t s_fd, d_fd, c_fd ;
+	ssize_t s_fd, d_fd, c_fd;
 
 	if (!sfilename || !dfilename)
 		exit(97);
