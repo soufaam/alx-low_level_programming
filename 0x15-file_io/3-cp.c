@@ -29,7 +29,7 @@ void exitprint(int fd)
 {
 	if (fd)
 	{
-		dprintf(2, "Error: Can't close fd %d", fd);
+		dprintf(2, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 }
@@ -57,7 +57,7 @@ void write_buff(ssize_t d_fd, ssize_t s_fd, char *dfilename)
 		w_fd = write(d_fd, text_content, _strlen(text_content));
 		if (w_fd == -1)
 		{
-			dprintf(2, "Error: Can't write to %s", dfilename);
+			dprintf(2, "Error: Can't write to %s\n", dfilename);
 			exit(99);
 		}
 	}
@@ -81,7 +81,7 @@ void cp_file_to_file(const char *sfilename, char *dfilename)
 	s_fd = open(sfilename, O_RDONLY);
 	if (s_fd == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s", sfilename);
+		dprintf(2, "Error: Can't read from file %s\n", sfilename);
 		exit(98);
 	}
 	d_fd = open(dfilename, O_TRUNC | O_RDWR);
@@ -90,12 +90,13 @@ void cp_file_to_file(const char *sfilename, char *dfilename)
 		c_fd = creat(dfilename, 0664);
 		if (c_fd == -1)
 		{
-			dprintf(2, "Error: Can't write to %s", dfilename);
+			dprintf(2, "Error: Can't write to %s\n", dfilename);
 			exit(99);
 		}
 		if (close(c_fd) == -1)
 			exitprint(c_fd);
 	}
+	d_fd = open(dfilename, O_TRUNC | O_RDWR);
 	write_buff(d_fd, s_fd, dfilename);
 	if (close(d_fd) == -1)
 		exitprint(d_fd);
@@ -113,7 +114,7 @@ int main(int ac, char **av)
 {
 	if (ac != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to");
+		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	cp_file_to_file(av[1], av[2]);
