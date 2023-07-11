@@ -52,14 +52,14 @@ void write_buff(ssize_t d_fd, ssize_t s_fd, char *dfilename)
 	r_fd = read(s_fd, text_content, 1024);
 	while (r_fd > 0)
 	{
-		r_fd = read(s_fd, text_content, 1024);
-		text_content[1024] = '\0';
+		text_content[r_fd] = '\0';
 		w_fd = write(d_fd, text_content, _strlen(text_content));
 		if (w_fd == -1)
 		{
 			dprintf(2, "Error: Can't write to %s\n", dfilename);
 			exit(99);
 		}
+		r_fd = read(s_fd, text_content, 1024);
 	}
 	free(text_content);
 }
