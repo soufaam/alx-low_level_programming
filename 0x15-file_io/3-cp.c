@@ -84,7 +84,7 @@ void cp_file_to_file(const char *sfilename, char *dfilename)
 		dprintf(2, "Error: Can't read from file %s\n", sfilename);
 		exit(98);
 	}
-	d_fd = open(dfilename, O_TRUNC | O_RDWR);
+	d_fd = open(dfilename, O_TRUNC | O_WRONLY);
 	if (d_fd == -1)
 	{
 		c_fd = creat(dfilename, 0664);
