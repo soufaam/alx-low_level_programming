@@ -1,6 +1,24 @@
 #include "main.h"
 
 /**
+* _strlen -  function
+* Description: 'the program's description _strlen
+* @s : 1 param
+*  Return: Always 0 (Success)
+*/
+
+int _strlen(char *s)
+{
+	int t = 0, len = 0;
+
+	while (*(s + t) != '\0')
+	{
+		len = len + 1;
+		t++;
+	}
+	return (len);
+}
+/**
 * exitprint -  function
 * Description: 'the program's description _strlen
 * @fd : 1 param
@@ -18,7 +36,7 @@ void exitprint(int fd)
 
 /**
 * write_buff - function
-* Description: 'the program's description write_buff
+* Description: 'the program's description _strlen
 * @d_fd: 1 param
 * @s_fd: 2 param
 * @dfilename: 3 param
