@@ -56,7 +56,7 @@ void write_buff(ssize_t d_fd, ssize_t s_fd, char *dfilename)
 		w_fd = write(d_fd, text_content, _strlen(text_content));
 		if (w_fd == -1)
 		{
-			dprintf(stderr, "Error: Can't write to %s\n", dfilename);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dfilename);
 			exit(99);
 		}
 		r_fd = read(s_fd, text_content, 1024);
@@ -81,7 +81,7 @@ void cp_file_to_file(const char *sfilename, char *dfilename)
 	s_fd = open(sfilename, O_RDONLY);
 	if (s_fd == -1)
 	{
-		dprintf(stderr, "Error: Can't read from file %s\n", sfilename);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", sfilename);
 		exit(98);
 	}
 	d_fd = open(dfilename, O_TRUNC | O_WRONLY);
@@ -90,7 +90,7 @@ void cp_file_to_file(const char *sfilename, char *dfilename)
 		c_fd = creat(dfilename, 0664);
 		if (c_fd == -1)
 		{
-			dprintf(stderr, "Error: Can't write to %s\n", dfilename);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dfilename);
 			exit(99);
 		}
 		if (close(c_fd) == -1)
@@ -114,7 +114,7 @@ int main(int ac, char **av)
 {
 	if (ac != 3)
 	{
-		dprintf(stderr, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	cp_file_to_file(av[1], av[2]);
