@@ -35,6 +35,36 @@ void exitprint(int fd)
 }
 
 /**
+* write_buff -
+* Description: 'the program's description _strlen
+* @d_fd: 1 param
+* @s_fd: 2 param
+* @dfilename: 3 param
+*  Return: Always 0 (Success)
+*/
+
+void write_buff(ssize_t d_fd, ssize_t s_fd, char *dfilename)
+{
+	ssize_t w_fd, r_fd;
+	char *text_content = NULL;
+
+	text_content = malloc(sizeof(char) * 1024);
+	r_fd = read(s_fd, text_content, 1024);
+	while (r_fd > 0)
+	{
+		r_fd = read(s_fd, text_content, 1024);
+		text_content[1024] = '\0';
+		w_fd = write(d_fd, text_content, _strlen(text_content));
+		if (w_fd == -1)
+		{
+			dprintf(2, "Error: Can't write to %s", dfilename);
+			exit(99);
+		}
+	}
+	free(text_content);
+}
+
+/**
 * cp_file_to_file -  Entrypoint
 * Description: 'the program's description _strlen
 * @sfilename: 1 param
@@ -44,45 +74,33 @@ void exitprint(int fd)
 
 void cp_file_to_file(const char *sfilename, char *dfilename)
 {
-	int fd1, fd2, wd2, cd2, rd1;
-	char *text_content = NULL;
+	ssize_t s_fd, d_fd, c_fd ;
 
 	if (!sfilename || !dfilename)
 		exit(97);
-	fd1 = open(sfilename, O_RDONLY);
-	if (fd1 == -1)
+	s_fd = open(sfilename, O_RDONLY);
+	if (s_fd == -1)
 	{
 		dprintf(2, "Error: Can't read from file %s", sfilename);
 		exit(98);
 	}
-	text_content = malloc(1024 * sizeof(char));
-	fd2 = open(dfilename, O_TRUNC | O_RDWR);
-	if (fd2 == -1)
+	d_fd = open(dfilename, O_TRUNC | O_RDWR);
+	if (d_fd == -1)
 	{
-		cd2 = creat(dfilename, 0664);
-		if (cd2 == -1)
-		{
-			dprintf(2, "Error: Can't write to %s", dfilename);
-			exit(99);
-			exitprint(close(cd2));
-		}
-	}
-	fd2 = open(dfilename, O_APPEND | O_RDWR);
-	rd1 = read(fd1, text_content, 1024);
-	while (rd1 > 0)
-	{
-		rd1 = read(fd1, text_content, 1024);
-		text_content[1024] = '\0';
-		wd2 = write(fd2, text_content, _strlen(text_content));
-		if (wd2 == -1)
+		c_fd = creat(dfilename, 0664);
+		if (c_fd == -1)
 		{
 			dprintf(2, "Error: Can't write to %s", dfilename);
 			exit(99);
 		}
+		if (close(c_fd) == -1)
+			exitprint(c_fd);
 	}
-	free(text_content);
-	exitprint(close(fd1));
-	exitprint(close(fd2));
+	write_buff(d_fd, s_fd, dfilename);
+	if (close(d_fd) == -1)
+		exitprint(d_fd);
+	if (close(s_fd) == -1)
+		exitprint(s_fd);
 }
 
 /**
