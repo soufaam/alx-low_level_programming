@@ -96,7 +96,7 @@ void cp_file_to_file(const char *sfilename, char *dfilename)
 		if (close(c_fd) == -1)
 			exitprint(c_fd);
 	}
-	d_fd = open(dfilename, O_TRUNC | O_RDWR);
+	d_fd = open(dfilename, O_TRUNC | O_WRONLY);
 	write_buff(d_fd, s_fd, dfilename);
 	if (close(d_fd) == -1)
 		exitprint(d_fd);
