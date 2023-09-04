@@ -36,11 +36,12 @@ void exitprint(int fd)
 * Description: 'the program's description _strlen
 * @d_fd: 1 param
 * @s_fd: 2 param
-* @dfilename: 3 param
+* @dfname: 3 param
+* @sfname: 4 param
 *  Return: Always 0 (Success)
 */
 
-void write_buff(ssize_t d_fd, ssize_t s_fd, char *dfilename, char *sfilename)
+void write_buff(ssize_t d_fd, ssize_t s_fd, char *dfname, const char *sfname)
 {
 	ssize_t w_fd, r_fd;
 	char *text_content = NULL;
@@ -49,7 +50,7 @@ void write_buff(ssize_t d_fd, ssize_t s_fd, char *dfilename, char *sfilename)
 	r_fd = read(s_fd, text_content, 1024);
 	if (r_fd < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", sfilename);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", sfname);
 		exit(98);
 	}
 	while (r_fd > 0)
@@ -58,7 +59,7 @@ void write_buff(ssize_t d_fd, ssize_t s_fd, char *dfilename, char *sfilename)
 		w_fd = write(d_fd, text_content, _strlen(text_content));
 		if (w_fd == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dfilename);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dfname);
 			exit(99);
 		}
 		if (w_fd < r_fd)
