@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <unistd.h>
 /**
 * _strlen -  function
 * Description: 'the program's description _strlen
@@ -51,6 +51,8 @@ void write_buff(ssize_t d_fd, ssize_t s_fd, char *dfilename)
 	{
 		text_content[r_fd] = '\0';
 		w_fd = write(d_fd, text_content, _strlen(text_content));
+		if (w_fd < r_fd)
+			write(d_fd, text_content + w_fd + 1, _strlen(text_content + w_fd + 1));
 		if (w_fd == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dfilename);
