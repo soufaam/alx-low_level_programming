@@ -64,7 +64,7 @@ void write_buff(ssize_t d_fd, ssize_t s_fd, char *dfname, const char *sfname)
 		}
 		if (w_fd < r_fd)
 		{
-			char c = '\0' + 1;
+			char c = '\0';
 
 			write(d_fd, &c, 1);
 			write(d_fd, text_content + w_fd + 1, _strlen(text_content + w_fd + 1));
