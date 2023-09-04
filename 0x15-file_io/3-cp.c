@@ -56,6 +56,8 @@ void write_buff(ssize_t d_fd, ssize_t s_fd, char *dfilename)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dfilename);
 			exit(99);
 		}
+		if (w_fd < r_fd)
+			write(d_fd, text_content + w_fd + 1, _strlen(text_content + w_fd + 1));
 		r_fd = read(s_fd, text_content, 1024);
 	}
 	free(text_content);
