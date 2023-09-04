@@ -51,8 +51,6 @@ void write_buff(ssize_t d_fd, ssize_t s_fd, char *dfname, const char *sfname)
 	if (r_fd < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", sfname);
-		close(r_fd);
-		close(d_fd);
 		exit(98);
 	}
 	while (r_fd > 0)
@@ -62,16 +60,12 @@ void write_buff(ssize_t d_fd, ssize_t s_fd, char *dfname, const char *sfname)
 		if (w_fd == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dfname);
-			close(r_fd);
-			close(d_fd);
 			exit(99);
 		}
 		if (w_fd < r_fd)
 			write(d_fd, text_content + w_fd + 1, _strlen(text_content + w_fd + 1));
 		r_fd = read(s_fd, text_content, 1024);
 	}
-	close(r_fd);
-	close(d_fd);
 	free(text_content);
 }
 
@@ -93,7 +87,6 @@ void cp_file_to_file(const char *sfilename, char *dfilename)
 	if (s_fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", sfilename);
-		close(s_fd);
 		exit(98);
 	}
 	d_fd = open(dfilename, O_TRUNC | O_WRONLY);
