@@ -10,9 +10,9 @@ hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *tab;
 
-	tab = malloc(sizeof(hash_node_t)*size);
+	tab = malloc(sizeof(hash_node_t) * size);
 	if (!tab)
 		return (NULL);
 	tab->size = size;
-	return tab;
+	return (tab);
 }
