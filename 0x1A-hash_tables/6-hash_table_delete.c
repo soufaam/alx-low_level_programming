@@ -1,8 +1,8 @@
 #include "hash_tables.h"
 
 /**
-* hash_table_print -  function
-* Description: 'the program's description key_index
+* hash_table_delete -  function
+* Description: 'the program's description hash_table_delete
 * @ht: hash table
 *  Return: Always 0 (Success)
 */
