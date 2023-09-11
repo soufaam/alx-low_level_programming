@@ -90,7 +90,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	ht_node->next = NULL;
 	for (i = 0; i < ht->size; i++)
 	{
-		if (i == index && ht->array[index])
+		if (i == index && ht->array[index], i++)
 		{
 			if (!_strcmp(ht->array[index]->key, (char *)key))
 			{
