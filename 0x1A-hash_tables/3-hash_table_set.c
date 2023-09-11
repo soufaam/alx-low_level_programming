@@ -76,12 +76,10 @@ int _strcmp(char *s1, char *s2)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *ht_node = NULL;
+	hash_node_t *ht_node = NULL, *tmp = NULL;
 	unsigned long int i;
 
-	if (*key == '\0')
-		return (0);
-	if (!ht)
+	if (*key == '\0' || !ht)
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
 	ht_node = malloc(sizeof(hash_node_t));
@@ -100,8 +98,16 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 				ht->array[index] = ht_node;
 				return (1);
 			}
+			else
+			{
+				free(ht->array[index]->key);
+				free(ht->array[index]->value);
+				tmp = ht->array[index];
+				ht->array[index] = ht_node;
+				free(tmp);
+				return (1);
+			}
 		}
 	}
-	ht->array[index] = ht_node;
 	return (1);
 }
