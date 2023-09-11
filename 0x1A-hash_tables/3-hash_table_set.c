@@ -82,6 +82,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (*key == '\0' || !ht)
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
+	if (index > ht->size)
+		return (0);
 	ht_node = malloc(sizeof(hash_node_t));
 	if (!ht_node)
 		return (0);
