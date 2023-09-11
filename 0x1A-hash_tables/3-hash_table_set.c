@@ -76,7 +76,7 @@ int _strcmp(char *s1, char *s2)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *ht_node = NULL, *tmpnode = NULL;
+	hash_node_t *ht_node = NULL;
 	unsigned long int i;
 
 	if (*key == '\0')
@@ -90,13 +90,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	ht_node->next = NULL;
 	for (i = 0; i < ht->size; i++)
 	{
-		if (i == index && ht->array[index], i++)
+		if (i == index && ht->array[index])
 		{
-			if (!_strcmp(ht->array[index]->key, (char *)key))
+			if (_strcmp(ht->array[index]->key, (char *)key))
 			{
-				tmpnode = ht->array[index];
+				ht_node->next = ht->array[index];
 				ht->array[index] = ht_node;
-				ht->array[index]->next = tmpnode;
 				return (1);
 			}
 		}
