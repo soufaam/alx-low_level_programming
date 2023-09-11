@@ -68,15 +68,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	ht_node->key = _strdup((char *)key);
 	ht_node->value = _strdup((char *)value);
 	ht_node->next = NULL;
-	for (i = 0; i < ht->size; i++)
-	{
-		if (ht->array[i])
-			ht_node->next = ht->array[i];
-		else if (i == index)
-		{
-			ht->array[index] = ht_node;
-			break;
-		}
-	}
+	ht->array[index] = ht_node;
 	return (1);
 }
