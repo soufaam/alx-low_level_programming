@@ -32,18 +32,20 @@ char *_strdup(char *str)
 
 	if (str == NULL)
 		return (NULL);
-	s = malloc(sizeof(char) * (_strlen(str)) + 1);
+	s = malloc(sizeof(char) * (_strlen(str) + 1));
 	if (s)
 	{
 		for (; i < _strlen(str); i++)
 		{
 			*(s + i) = *(str + i);
 		}
+		s[i] = '\0';
 	return (s);
 	}
 	free(s);
 	return (NULL);
 }
+
 /**
 * _strcmp -  Entrypoint
 * Description: 'the program's description _strcmp
@@ -77,6 +79,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	hash_node_t *ht_node = NULL, *tmp = NULL;
+	char *dkey = (char *)key, *dval = (char *)value;
 	unsigned long int i;
 
 	if (*key == '\0' || !ht)
@@ -87,13 +90,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	ht_node = malloc(sizeof(hash_node_t));
 	if (!ht_node)
 		return (0);
-	ht_node->key = _strdup((char *)key);
-	ht_node->value = _strdup((char *)value);
+	ht_node->key = _strdup((dkey));
+	ht_node->value = _strdup(dval);
 	ht_node->next = NULL;
 	for (i = 0; i < ht->size; i++)
 		if (i == index && ht->array[index])
 		{
-			if (_strcmp(ht->array[index]->key, (char *)key))
+			if (_strcmp(ht->array[index]->key, dkey))
 			{
 				ht_node->next = ht->array[index];
 				ht->array[index] = ht_node;
