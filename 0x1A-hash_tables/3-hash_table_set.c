@@ -92,7 +92,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		if (i == index && ht->array[index])
 		{
-			if (!_strcmp(ht->array[index]->key, key))
+			if (!_strcmp(ht->array[index]->key, (char *)key))
 			{
 				tmpnode = ht->array[index];
 				ht->array[index] = ht_node;
