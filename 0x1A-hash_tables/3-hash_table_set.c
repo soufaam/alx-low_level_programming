@@ -89,7 +89,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	ht_node->value = _strdup((char *)value);
 	ht_node->next = NULL;
 	for (i = 0; i < ht->size; i++)
-	{
 		if (i == index && ht->array[index])
 		{
 			if (_strcmp(ht->array[index]->key, (char *)key))
@@ -108,6 +107,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 				return (1);
 			}
 		}
-	}
+	ht->array[index] = ht_node;
 	return (1);
 }
