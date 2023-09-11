@@ -44,6 +44,26 @@ char *_strdup(char *str)
 	free(s);
 	return (NULL);
 }
+/**
+* _strcmp -  Entrypoint
+* Description: 'the program's description _strcmp
+* @s1 : 1 param
+* @s2 : 2 param
+*  Return: Always 0 (Success)
+*/
+
+int _strcmp(char *s1, char *s2)
+{
+	int result, i = 0;
+
+	result = *(s1 + i) - *(s2 + i);
+	while (*(s1 + i) != '\0' && (*(s1 + i) - *(s2 + i)) == 0)
+	{
+		i++;
+		result = *(s1 + i) - *(s2 + i);
+	}
+	return (result);
+}
 
 /**
 * hash_table_set -  function
@@ -56,7 +76,8 @@ char *_strdup(char *str)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *ht_node = NULL;
+	hash_node_t *ht_node = NULL, *tmpnode = NULL;
+	unsigned long int i;
 
 	if (*key == '\0')
 		return (0);
@@ -67,6 +88,19 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	ht_node->key = _strdup((char *)key);
 	ht_node->value = _strdup((char *)value);
 	ht_node->next = NULL;
+	for (i = 0; i < ht->size; i++)
+	{
+		if (i == index && ht->array[index])
+		{
+			if (!_strcmp(ht->array[index]->key, key))
+			{
+				tmpnode = ht->array[index];
+				ht->array[index] = ht_node;
+				ht->array[index]->next = tmpnode;
+				return (1);
+			}
+		}
+	}
 	ht->array[index] = ht_node;
 	return (1);
 }
