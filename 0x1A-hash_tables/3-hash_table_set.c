@@ -72,8 +72,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		if (ht->array[i])
 			ht_node->next = ht->array[i];
-		else
+		else if (i == index)
+		{
 			ht->array[index] = ht_node;
+			break;
+		}
 	}
 	return (1);
 }
