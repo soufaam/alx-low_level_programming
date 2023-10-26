@@ -36,17 +36,23 @@ void exitprint(int fd)
 * Description: 'the program's description _strlen
 * @d_fd: 1 param
 * @s_fd: 2 param
-* @dfilename: 3 param
+* @dfname: 3 param
+* @sfname: 4 param
 *  Return: Always 0 (Success)
 */
 
-void write_buff(ssize_t d_fd, ssize_t s_fd, char *dfilename)
+void write_buff(ssize_t d_fd, ssize_t s_fd, char *dfname, const char *sfname)
 {
 	ssize_t w_fd, r_fd;
 	char *text_content = NULL;
 
 	text_content = malloc(sizeof(char) * 1024);
 	r_fd = read(s_fd, text_content, 1024);
+	if (r_fd < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", sfname);
+		exit(98);
+	}
 	while (r_fd > 0)
 	{
 		text_content[r_fd] = '\0';
@@ -55,8 +61,15 @@ void write_buff(ssize_t d_fd, ssize_t s_fd, char *dfilename)
 			write(d_fd, text_content + w_fd + 1, _strlen(text_content + w_fd + 1));
 		if (w_fd == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dfilename);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dfname);
 			exit(99);
+		}
+		if (w_fd < r_fd)
+		{
+			char c = '\0';
+
+			write(d_fd, &c, 1);
+			write(d_fd, text_content + w_fd + 1, _strlen(text_content + w_fd + 1));
 		}
 		r_fd = read(s_fd, text_content, 1024);
 	}
@@ -96,7 +109,7 @@ void cp_file_to_file(const char *sfilename, char *dfilename)
 			exitprint(c_fd);
 	}
 	d_fd = open(dfilename, O_TRUNC | O_WRONLY);
-	write_buff(d_fd, s_fd, dfilename);
+	write_buff(d_fd, s_fd, dfilename, sfilename);
 	if (close(d_fd) == -1)
 		exitprint(d_fd);
 	if (close(s_fd) == -1)
