@@ -2,8 +2,12 @@ CC=gcc
 SRC = main.c school.c
 OBJ = $(SRCS:.c=.o)
 NAME = school
-all: $(SRC)
-	$(CC) -o $(NAME) $(SRC)
+all: school
+	
+school: $(SRC)
+	$$(CC) -o $(NAME) $(SRC)
+%.o: %.c
+	$(CC) -c $< -o $@
 
 clean:
 	$(RM) $(OBJ)
