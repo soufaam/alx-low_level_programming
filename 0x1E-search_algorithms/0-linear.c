@@ -84,10 +84,12 @@ int linear_search(int *array, size_t size, int value)
 	size_t i = 0;
 
 	if (!array)
-	return (-1);
+	{
+		return (-1);
+	}
 	for (i = 0; i < size; i++)
 	{
-		write(1, "Value checked array [", _strlen("Value checked array ["));
+		write(1, "Value checked array[", _strlen("Value checked array["));
 		print_number(i);
 		write(1, "] = [", _strlen("] = ["));
 		print_number(array[i]);
