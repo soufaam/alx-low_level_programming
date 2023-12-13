@@ -131,7 +131,7 @@ int jump_search(int *array, size_t size, int value)
 	write(1, "] and [", 7);
 	print_number(end);
 	write(1, "]\n", 2);
-	for ( index = start; index <= end && index < (int)size; index++)
+	for (index = start; index <= end && index < (int)size; index++)
 	{
 		write_checked(index, array);
 		if (array[index] == value)
